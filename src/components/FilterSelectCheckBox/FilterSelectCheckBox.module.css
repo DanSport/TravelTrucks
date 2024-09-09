@@ -1,0 +1,13 @@
+.filterSelectCheckBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  width: 112px;
+  height: 96px;
+  background: var(--color-white);
+  border: 1px solid var(--color-default-border);
+  border-radius: 12px;
+  padding: 16px;
+}

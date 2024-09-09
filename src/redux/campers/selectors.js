@@ -18,11 +18,12 @@ export const selectFilteredCampers = createSelector([selectCampers, selectFilter
         return true;
       }
     })
-    .filter(({ transmission, AC, bathroom, kitchen, TV }) => {
+    .filter(({ transmission, AC, bathroom, kitchen, TV, radio }) => {
       if (filters.aircond && !AC) return false;
       if (filters.bathroom && !bathroom) return false;
       if (filters.kitchen && !kitchen) return false;
       if (filters.tv && !TV) return false;
+      if (filters.radio && !radio) return false;
       if (filters.automatic && transmission !== 'automatic') return false;
       return true;
     })

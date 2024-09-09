@@ -1,0 +1,41 @@
+.headerBackground {
+  width: 100%;
+  max-height: 72px;
+  background-color: var(--color-secondary-background);
+  border-bottom: 1px solid var(--color-default-border);
+}
+
+.header {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 24px 64px;
+  width: 100%;
+}
+
+.logo {
+  display: block;
+  margin: 4px 0;
+  width: 136px;
+  height: 16px;
+}
+
+.spacer {
+  width: 136px;
+}
+
+@media screen and (max-width: 400px) {
+  .headerBackground {
+    max-height: 105px;
+  }
+
+  .header {
+    justify-content: center;
+    flex-wrap: wrap;
+    row-gap: 16px;
+  }
+  .spacer {
+    display: none;
+  }
+}

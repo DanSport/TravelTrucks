@@ -5,6 +5,7 @@ const initialState = {
   automatic: false,
   kitchen: false,
   tv: false,
+  radio: false,
   bathroom: false,
   form: 'all',
 };

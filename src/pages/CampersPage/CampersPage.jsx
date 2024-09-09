@@ -1,6 +1,12 @@
+import { Outlet } from "react-router"
+import { Button } from "../../components/Button/Button"
+
 const CampersPage = () => {
   return (
-    <div>CampersPage</div>
+    <div>CampersPage
+      <Button title='click me' variant="secondary" />
+      <Outlet />
+    </div>
   )
 }
 

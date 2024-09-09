@@ -5,7 +5,9 @@ export const CommonLayout = () => {
   return (
     <>
       <Header />
-      <Outlet />
+      <div className='wrapper'>
+        <Outlet />
+      </div>
     </>
   );
 };
