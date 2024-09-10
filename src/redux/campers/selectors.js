@@ -1,5 +1,6 @@
 import { createSelector } from '@reduxjs/toolkit';
 import { selectFilters } from '../filters/selectors';
+import { ALL } from '../filters/slice';
 
 export const selectCampers = state => state.campers.items;
 export const selectIsLoading = state => state.campers.isLoading;
@@ -11,12 +12,16 @@ export const selectFilteredCampers = createSelector([selectCampers, selectFilter
   return campers.items
     .filter(({ location }) => {
       const filterLocation = filters.location.trim();
+
       if (filterLocation.length > 0) {
-        if (location.toLocaleLowerCase().contains(filterLocation.toLocaleLowerCase())) return true;
+        if (location.toLocaleLowerCase().contains(filterLocation.toLocaleLowerCase())) {
+          return true;
+        }
+
         return false;
-      } else {
-        return true;
       }
+
+      return true;
     })
     .filter(({ transmission, AC, bathroom, kitchen, TV, radio }) => {
       if (filters.aircond && !AC) return false;
@@ -28,7 +33,7 @@ export const selectFilteredCampers = createSelector([selectCampers, selectFilter
       return true;
     })
     .filter(({ form }) => {
-      if (filters.form === 'all') return true;
+      if (filters.form === ALL) return true;
       if (filters.form === form) return true;
       return false;
     });

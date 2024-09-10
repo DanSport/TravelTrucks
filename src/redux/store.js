@@ -4,7 +4,7 @@ import { campersReducer } from './campers/slice';
 
 export const store = configureStore({
   reducer: {
-    filter: filterReducer,
+    filters: filterReducer,
     campers: campersReducer,
   },
 });

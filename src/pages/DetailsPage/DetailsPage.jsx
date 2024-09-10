@@ -1,7 +1,12 @@
+import { Outlet } from 'react-router';
+
 const DetailsPage = () => {
   return (
-    <div>DetailsPage</div>
-  )
-}
+    <>
+      <div>DetailsPage</div>
+      <Outlet />
+    </>
+  );
+};
 
-export default DetailsPage
+export default DetailsPage;

@@ -1,0 +1,80 @@
+.inputField {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+
+  width: 100%;
+}
+
+.label {
+  margin: 0;
+  font-size: inherit;
+  line-height: inherit;
+  font-weight: inherit;
+  color: var(--color-secondary-text);
+}
+
+.input {
+  width: 100%;
+  height: 56px;
+  padding: 18px;
+  outline: none;
+  border: none;
+  border-radius: 12px;
+  font-size: inherit;
+  line-height: inherit;
+  font-weight: inherit;
+  background-color: var(--color-secondary-background);
+}
+.input.withIcon {
+  padding-left: 54px;
+}
+
+.inputField>.input:placeholder-shown + .placeholderNoLabel,
+.inputField>.input:placeholder-shown + .placeholderWLabel,
+.inputField>.input:not(:placeholder-shown) + .placeholderWLabel,
+.inputField>.input:not(:placeholder-shown) + .placeholderNoLabel {
+  position: absolute;
+  left: 18px;
+  bottom: 16px;
+  font-size: inherit;
+  line-height: inherit;
+  font-weight: inherit;
+  color: var(--color-secondary-text);
+  transition: var(--transition);
+}
+
+.inputField>.input.withIcon + .placeholderWLabel,
+.inputField>.input.withIcon + .placeholderNoLabel {
+  left: 54px;
+}
+
+.inputField>.input:not(:placeholder-shown) + .placeholderWLabel {
+  opacity: 0;
+  transition: var(--transition);
+  transition-property: opacity;
+}
+
+.inputField>.input:not(:placeholder-shown) + .placeholderNoLabel {
+  position: absolute;
+  bottom: 54px;
+  left: 4px;
+  font-size: 14px;
+  color: var(--color-black);
+  transition: var(--transition);
+  transition-property: left bottom;
+}
+
+.icon {
+  display:block;
+  margin: 0;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  bottom: 18px;
+  left: 18px;
+}

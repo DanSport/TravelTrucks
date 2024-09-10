@@ -5,6 +5,7 @@ import { lazy, Suspense } from 'react';
 const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
 const CampersPage = lazy(() => import('./pages/CampersPage/CampersPage'));
 const DetailsPage = lazy(() => import('./pages/DetailsPage/DetailsPage'));
+const FeaturesPage = lazy(() => import('./pages/FeaturesPage/FeaturesPage'));
 const ReviewsPage = lazy(() => import('./pages/ReviewsPage/ReviewsPage'));
 const ReservePage = lazy(() => import('./pages/ReservePage/ReservePage'));
 
@@ -14,9 +15,12 @@ function App() {
       <Routes>
         <Route path='/' element={<CommonLayout />}>
           <Route index element={<HomePage />} />
-          <Route path='/campers' element={<CampersPage />}>
-            <Route path=':id' element={<DetailsPage />} />
-            <Route path=':id/reviews' element={<ReviewsPage />} />
+          <Route path='/campers' element={<CampersPage />} />
+          <Route path='/campers/:id' element={<DetailsPage />}>
+            <Route index element={<FeaturesPage />} />
+            <Route path='features' element={<FeaturesPage />} />
+            <Route path='reviews' element={<ReviewsPage />} />
+            <Route path='*' element={<Navigate to='/campers' />} />
           </Route>
           <Route path='/reserve' element={<ReservePage />} />
           <Route path='*' element={<Navigate to='/' />} />

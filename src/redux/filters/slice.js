@@ -1,13 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = {
+export const ALL = 'all';
+
+export const initialState = {
   aircond: false,
   automatic: false,
   kitchen: false,
   tv: false,
-  radio: false,
   bathroom: false,
-  form: 'all',
+  form: ALL,
 };
 
 const filterSlice = createSlice({
@@ -16,10 +17,13 @@ const filterSlice = createSlice({
   reducers: {
     resetFilters: () => initialState,
     toggleFilter: (state, { payload }) => {
-      state[payload] = !state.filters.type[payload];
+      state[payload] = !state[payload];
+    },
+    setForm: (state, { payload }) => {
+      state.form = state.form !== payload ? payload : ALL;
     },
   },
 });
 
-export const { toggleFilter, resetFilters } = filterSlice.actions;
+export const { toggleFilter, setForm, resetFilters } = filterSlice.actions;
 export const filterReducer = filterSlice.reducer;

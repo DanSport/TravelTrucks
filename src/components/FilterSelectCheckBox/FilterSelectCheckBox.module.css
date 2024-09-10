@@ -3,11 +3,48 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 8px;
+  position: relative;
   cursor: pointer;
   width: 112px;
   height: 96px;
+  color: var(--color-primary-text);
   background: var(--color-white);
   border: 1px solid var(--color-default-border);
   border-radius: 12px;
   padding: 16px;
+  overflow: hidden;
+  transition: var(--transition);
+  transition-property: border-color;
+}
+
+.filterSelectCheckBox > img {
+  display: block;
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.label {
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.filterSelectCheckBox:has(input[type='checkbox']:checked) {
+  border: 1px solid var(--color-primary-button);
+}
+
+.filterSelectCheckBox > input[type='checkbox'] {
+  position: absolute;
+  bottom: -10px;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }

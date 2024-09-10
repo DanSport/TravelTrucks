@@ -1,0 +1,67 @@
+.filterBar {
+  width: 360px;
+  height: 100%;
+  /* background-color: var(--color-secondary-background); */
+}
+
+.sectionTitle {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+  color: var(--color-primary-text);
+  margin: 40px 0 32px;
+}
+
+.resetFilters {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+  color: var(--color-primary-button);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  margin: 0;
+}
+
+.filterBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  margin: 0 0 32px;
+
+  p {
+    position: relative;
+    margin: 0;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 600;
+    color: var(--color-black);
+  }
+
+  p:after{
+    content: '';
+    position: absolute;
+    bottom: -24px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: var(--color-default-border);
+  }
+
+  ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px 12px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+}
+
+.button {
+  width: 166px;
+}
