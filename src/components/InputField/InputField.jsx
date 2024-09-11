@@ -2,11 +2,11 @@ import PropTypes from 'prop-types';
 import css from './InputField.module.css';
 import clsx from 'clsx';
 
-export const InputField = ({ name, type = 'text', label = null, icon=null, placeholder, onChange, className }) => {
+export const InputField = ({ name, type = 'text', label = null, icon=null, placeholder, onChange, className,value }) => {
   return (
     <label className={clsx(css.inputField, className)}>
       {!!label && <span className={css.label}>{label}</span>}
-      <input name={name} type={type} onChange={onChange} placeholder='&nbsp;' className={clsx(css.input, icon && css.withIcon)} />
+      <input name={name} type={type} onChange={onChange} placeholder='&nbsp;' value={value}  className={clsx(css.input, icon && css.withIcon)} />
       {!!placeholder && (<span className={label ? css.placeholderWLabel : css.placeholderNoLabel}>{placeholder}</span>)}
       {!!icon && <img src={icon} alt='' className={css.icon} />}
     </label>
@@ -15,6 +15,7 @@ export const InputField = ({ name, type = 'text', label = null, icon=null, place
 
 InputField.propTypes = {
   name: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
   type: PropTypes.string,
   label: PropTypes.string,
   icon: PropTypes.node,

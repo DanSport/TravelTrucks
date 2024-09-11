@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { selectFilters, selectFiltersChanged } from '../../redux/filters/selectors';
-import { resetFilters, setForm, toggleFilter } from '../../redux/filters/slice';
+import { resetFilters, setForm, setLocation, toggleFilter } from '../../redux/filters/slice';
 import { Button } from '../Button/Button';
 import { InputField } from '../InputField/InputField';
 import { FilterSelectCheckBox } from '../FilterSelectCheckBox/FilterSelectCheckBox';
@@ -35,6 +35,11 @@ export const FilterBar = () => {
   const { form } = filters;
   const dispatch = useDispatch();
 
+  const handleLocationChange = e => {
+    e.preventDefault();
+    dispatch(setLocation(e.currentTarget.value));
+  };
+
   const handleToggle = e => {
     e.preventDefault();
     dispatch(toggleFilter(e.currentTarget.lastChild.name));
@@ -47,8 +52,15 @@ export const FilterBar = () => {
 
   return (
     <div className={css.filterBar}>
-      <InputField name='location' placeholder='Kyiv, Ukraine' icon={locationIcon} label='Location' />
-      <h3 className={css.sectionTitle}>Filters &nbsp; {!!filtersChanged && <button type="button" className={css.resetFilters} onClick={() => dispatch(resetFilters())}>(Reset)</button>}</h3>
+      <InputField name='location' placeholder='Kyiv, Ukraine' icon={locationIcon} label='Location' value={filters.location} onChange={handleLocationChange} />
+      <h3 className={css.sectionTitle}>
+        Filters &nbsp;{' '}
+        {!!filtersChanged && (
+          <button type='button' className={css.resetFilters} onClick={() => dispatch(resetFilters())}>
+            (Reset)
+          </button>
+        )}
+      </h3>
       <div className={css.filterBlock}>
         <p>Vehicle equipment</p>
         <ul>

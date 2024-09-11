@@ -16,12 +16,10 @@ export const fetchCampersThunk = {
     state.error = null;
   },
   fulfilled: (state, { payload }) => {
-    console.log({ state, payload });
     state.isLoading = false;
     state.items = payload;
   },
   rejected: (state, { payload }) => {
-    console.log({ payload });
     state.isLoading = false;
     state.error = payload;
   },

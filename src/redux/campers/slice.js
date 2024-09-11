@@ -5,6 +5,7 @@ import { fetchDetails, fetchDetailsThunk } from './detailsThunk';
 export const initialCampersState = {
   items: [],
   updatedItem: [],
+  favoriteItems: [],
   isLoading: false,
   error: null,
 };

@@ -13,7 +13,7 @@ const HomePage = () => {
       <Img src={hero1x} sizes={'1440px'} className={css.heroImage} srcSet={`${hero1x} 1440w, ${hero2x} 2880w, ${hero3x} 4320w`} />
       <p className={css.heroText}>Campers of your dreams</p>
       <p className={css.heroSubText}>You can find everything you want in our catalog</p>
-      <Button title="View Now" variant="primary" onClick={() => {navigate('/campers')}} className={css.heroButton} />
+      <Button title="View Now" variant="primary" onClick={() => {navigate('/catalog')}} className={css.heroButton} />
     </div>
   )
 }
