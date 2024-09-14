@@ -6,12 +6,15 @@ export const Navigation = () => {
   return (
     <ul className={css.navigation}>
       <li>
-        <NavLink className={({ isActive }) => clsx(css.navlink, isActive && css.active)} to='/'>
+        <NavLink className={({ isActive }) => clsx(css.navlink, isActive && css.active)} to="/">
           Home
         </NavLink>
       </li>
       <li>
-        <NavLink className={({ isActive }) => clsx(css.navlink, isActive && css.active)} to='/catalog'>
+        <NavLink
+          className={({ isActive }) => clsx(css.navlink, isActive && css.active)}
+          to="/catalog"
+        >
           Catalog
         </NavLink>
       </li>

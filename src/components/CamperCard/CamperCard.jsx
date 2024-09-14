@@ -84,7 +84,13 @@ export const CamperCard = ({ camper }) => {
               )
           )}
         </ul>
-        <Button title="Show more" className={css.moreButton} onClick={() => {navigate(`/catalog/${id}`)}} />
+        <Button
+          title="Show more"
+          className={css.moreButton}
+          onClick={() => {
+            navigate(`/catalog/${id}`);
+          }}
+        />
       </div>
     </div>
   );

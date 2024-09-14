@@ -52,11 +52,22 @@ export const FilterBar = () => {
 
   return (
     <div className={css.filterBar}>
-      <InputField name='location' placeholder='Kyiv, Ukraine' icon={locationIcon} label='Location' value={filters.location} onChange={handleLocationChange} />
+      <InputField
+        name="location"
+        placeholder="Kyiv, Ukraine"
+        icon={locationIcon}
+        label="Location"
+        value={filters.location}
+        onChange={handleLocationChange}
+      />
       <h3 className={css.sectionTitle}>
         Filters &nbsp;{' '}
         {!!filtersChanged && (
-          <button type='button' className={css.resetFilters} onClick={() => dispatch(resetFilters())}>
+          <button
+            type="button"
+            className={css.resetFilters}
+            onClick={() => dispatch(resetFilters())}
+          >
             (Reset)
           </button>
         )}
@@ -66,7 +77,13 @@ export const FilterBar = () => {
         <ul>
           {filterList.map(({ value, label, icon }) => (
             <li key={value}>
-              <FilterSelectCheckBox onClick={handleToggle} icon={icon} label={label} name={value} checked={filters[value]} />
+              <FilterSelectCheckBox
+                onClick={handleToggle}
+                icon={icon}
+                label={label}
+                name={value}
+                checked={filters[value]}
+              />
             </li>
           ))}
         </ul>
@@ -76,12 +93,24 @@ export const FilterBar = () => {
         <ul>
           {autoType.map(({ value, label, icon }) => (
             <li key={value}>
-              <FilterSelectCheckBox onClick={handleFormChange} icon={icon} label={label} name={value} checked={value === form} />
+              <FilterSelectCheckBox
+                onClick={handleFormChange}
+                icon={icon}
+                label={label}
+                name={value}
+                checked={value === form}
+              />
             </li>
           ))}
         </ul>
       </div>
-      <Button title='Search' className={css.button} onClick={() => {}} type='button' variant='primary' />
+      <Button
+        title="Search"
+        className={css.button}
+        onClick={() => {}}
+        type="button"
+        variant="primary"
+      />
     </div>
   );
 };

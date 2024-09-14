@@ -17,6 +17,8 @@ export const CampersList = () => {
   }, [dispatch, campersLoaded]);
 
   return (
-    <ul className={css.campersList}>{!!campers && campers.map(camper => <CamperCard key={camper.id} camper={camper} />)}</ul>
+    <ul className={css.campersList}>
+      {!!campers && campers.map(camper => <CamperCard key={camper.id} camper={camper} />)}
+    </ul>
   );
 };

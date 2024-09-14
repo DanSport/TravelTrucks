@@ -43,7 +43,7 @@
     color: var(--color-black);
   }
 
-  p:after{
+  p:after {
     content: '';
     position: absolute;
     bottom: -24px;

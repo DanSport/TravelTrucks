@@ -1,4 +1,4 @@
-import { initialState } from "./slice";
+import { initialState } from './slice';
 
 export const selectFilters = state => state.filters;
 
@@ -10,4 +10,4 @@ export const selectFiltersChanged = state => {
   }
 
   return false;
-}
+};

@@ -13,17 +13,17 @@ function App() {
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <Routes>
-        <Route path='/' element={<CommonLayout />}>
+        <Route path="/" element={<CommonLayout />}>
           <Route index element={<HomePage />} />
-          <Route path='/catalog' element={<CampersPage />} />
-          <Route path='/catalog/:id' element={<DetailsPage />}>
+          <Route path="/catalog" element={<CampersPage />} />
+          <Route path="/catalog/:id" element={<DetailsPage />}>
             <Route index element={<FeaturesPage />} />
-            <Route path='features' element={<FeaturesPage />} />
-            <Route path='reviews' element={<ReviewsPage />} />
-            <Route path='*' element={<Navigate to='/catalog' />} />
+            <Route path="features" element={<FeaturesPage />} />
+            <Route path="reviews" element={<ReviewsPage />} />
+            <Route path="*" element={<Navigate to="/catalog" />} />
           </Route>
-          <Route path='/reserve' element={<ReservePage />} />
-          <Route path='*' element={<Navigate to='/' />} />
+          <Route path="/reserve" element={<ReservePage />} />
+          <Route path="*" element={<Navigate to="/" />} />
         </Route>
       </Routes>
     </Suspense>

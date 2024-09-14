@@ -12,7 +12,7 @@ export const fetchDetails = createAsyncThunk(
       thunkAPI.rejectWithValue(error);
     }
   },
-  { condition: (id, { getState }) => getState().updatedItem.includes(id) },
+  { condition: (id, { getState }) => getState().updatedItem.includes(id) }
 );
 
 export const fetchDetailsThunk = {
@@ -23,7 +23,9 @@ export const fetchDetailsThunk = {
   fulfilled: (state, { payload }) => {
     console.log({ state, payload });
     state.isLoading = false;
-    state.items = state.items.map(item => (item.id === payload.id ? { ...item, ...payload } : item));
+    state.items = state.items.map(item =>
+      item.id === payload.id ? { ...item, ...payload } : item
+    );
     state.updatedItem.push(payload.id);
   },
   rejected: (state, { payload }) => {

@@ -34,10 +34,10 @@
   padding-left: 54px;
 }
 
-.inputField>.input:placeholder-shown + .placeholderNoLabel,
-.inputField>.input:placeholder-shown + .placeholderWLabel,
-.inputField>.input:not(:placeholder-shown) + .placeholderWLabel,
-.inputField>.input:not(:placeholder-shown) + .placeholderNoLabel {
+.inputField > .input:placeholder-shown + .placeholderNoLabel,
+.inputField > .input:placeholder-shown + .placeholderWLabel,
+.inputField > .input:not(:placeholder-shown) + .placeholderWLabel,
+.inputField > .input:not(:placeholder-shown) + .placeholderNoLabel {
   position: absolute;
   left: 18px;
   bottom: 16px;
@@ -48,18 +48,18 @@
   transition: var(--transition);
 }
 
-.inputField>.input.withIcon + .placeholderWLabel,
-.inputField>.input.withIcon + .placeholderNoLabel {
+.inputField > .input.withIcon + .placeholderWLabel,
+.inputField > .input.withIcon + .placeholderNoLabel {
   left: 54px;
 }
 
-.inputField>.input:not(:placeholder-shown) + .placeholderWLabel {
+.inputField > .input:not(:placeholder-shown) + .placeholderWLabel {
   opacity: 0;
   transition: var(--transition);
   transition-property: opacity;
 }
 
-.inputField>.input:not(:placeholder-shown) + .placeholderNoLabel {
+.inputField > .input:not(:placeholder-shown) + .placeholderNoLabel {
   position: absolute;
   bottom: 54px;
   left: 4px;
@@ -70,7 +70,7 @@
 }
 
 .icon {
-  display:block;
+  display: block;
   margin: 0;
   width: 20px;
   height: 20px;

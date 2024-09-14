@@ -12,7 +12,7 @@ export const FilterSelectCheckBox = ({ icon, label, name, checked, onClick }) =>
     <label className={css.filterSelectCheckBox} onClick={onClick}>
       <img src={icon} alt={label} />
       <span className={css.label}>{label}</span>
-      <input type='checkbox' name={name} checked={checked} readOnly />
+      <input type="checkbox" name={name} checked={checked} readOnly />
     </label>
   );
 };
