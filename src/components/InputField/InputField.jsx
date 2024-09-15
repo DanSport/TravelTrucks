@@ -11,6 +11,7 @@ export const InputField = ({
   onChange,
   className,
   value,
+  ...props
 }) => {
   return (
     <label className={clsx(css.inputField, className)}>
@@ -22,12 +23,9 @@ export const InputField = ({
         placeholder="&nbsp;"
         value={value}
         className={clsx(css.input, icon && css.withIcon)}
+        {...props}
       />
-      {!!placeholder && (
-        <span className={label ? css.placeholderWLabel : css.placeholderNoLabel}>
-          {placeholder}
-        </span>
-      )}
+      {!!placeholder && <span className={label ? css.placeholderWLabel : css.placeholderNoLabel}>{placeholder}</span>}
       {!!icon && <img src={icon} alt="" className={css.icon} />}
     </label>
   );

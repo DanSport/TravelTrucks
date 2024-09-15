@@ -1,0 +1,11 @@
+.stars {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: nowrap;
+}
+
+.starImg {
+  width: 16px;
+  height: 16px;
+}

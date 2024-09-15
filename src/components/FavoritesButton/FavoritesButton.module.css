@@ -1,0 +1,15 @@
+.favoriteButton {
+  background-color: transparent;
+  padding: 5px;
+  margin: 0;
+  width: 34px;
+  height: 34px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.favoriteIcon {
+  width: 24px;
+  height: 24px;
+}

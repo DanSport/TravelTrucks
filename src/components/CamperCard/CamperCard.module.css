@@ -23,13 +23,13 @@
   flex-direction: column;
   justify-content: start;
   align-items: start;
-  gap: 24px;
   width: 100%;
   height: 100%;
 }
 
 .header {
   width: 100%;
+  margin: 0 0 24px;
 }
 
 .titleRow {
@@ -37,31 +37,6 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 8px;
-}
-
-.name,
-.price {
-  font-size: 24px;
-  line-height: 32px;
-  font-weight: 600;
-  margin: 0;
-  white-space: nowrap;
-}
-
-.favoriteButton {
-  background-color: transparent;
-  padding: 5px;
-  margin: 0;
-  width: 34px;
-  height: 34px;
-  border: none;
-  outline: none;
-  cursor: pointer;
-}
-
-.favoriteIcon {
-  width: 24px;
-  height: 24px;
 }
 
 .subtitleRow {
@@ -89,39 +64,29 @@
 }
 
 .description {
+  position: relative;
+  flex-grow: 1;
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
   color: var(--color-primary-text);
-  margin: 0;
+  margin: 0 0 24px;
+  min-width: 0px;
+  width: 522px;
+  height: auto;
+  max-height: 86px;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.features {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.feature {
-  padding: 12px 18px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 500;
-  color: var(--color-black);
-  background-color: var(--color-secondary-border);
-  border-radius: 50px;
-  text-transform: capitalize;
-}
-
-.moreButton {
+.description::after {
+  content: '';
+  pointer-events: none;
   position: absolute;
-  bottom: 0px;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 30%;
+  background: linear-gradient(to bottom, transparent 10%, white 95%);
 }

@@ -1,0 +1,35 @@
+.form {
+  margin: 0;
+  height: 100%;
+  padding: 44px 57px;
+  border: 1px solid var(--color-default-border);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+}
+
+.title {
+  margin: 0 0 8px;
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 600;
+}
+
+.description {
+  margin: 0 0 24px;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  color: var(--color-primary-text);
+}
+
+.inputMargin {
+  margin-bottom: 14px;
+}
+
+.buttonMargin {
+  margin: 10px 0 0;
+  align-self: center;
+}

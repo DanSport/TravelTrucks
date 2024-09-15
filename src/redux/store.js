@@ -1,16 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { filterReducer } from './filters/slice';
 import { campersReducer } from './campers/slice';
-import {
-  persistReducer,
-  persistStore,
-  FLUSH,
-  REHYDRATE,
-  PAUSE,
-  PERSIST,
-  PURGE,
-  REGISTER,
-} from 'redux-persist';
+import { persistReducer, persistStore, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
 const persistedCampersReducer = persistReducer(

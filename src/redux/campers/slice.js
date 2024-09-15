@@ -1,6 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { fetchCampers, fetchCampersThunk } from './campersThunk';
-import { fetchDetails, fetchDetailsThunk } from './detailsThunk';
 
 export const initialCampersState = {
   items: [],
@@ -13,14 +12,22 @@ export const initialCampersState = {
 export const campersSlice = createSlice({
   name: 'campers',
   initialState: initialCampersState,
+  reducers: {
+    toggleFavorite: (state, { payload }) => {
+      console.log({ payload });
+      if (state.favoriteItems.includes(payload)) {
+        state.favoriteItems = state.favoriteItems.filter(item => item !== payload);
+      } else {
+        state.favoriteItems.push(payload);
+      }
+    },
+  },
   extraReducers: builder =>
     builder
       .addCase(fetchCampers.pending, fetchCampersThunk.pending)
       .addCase(fetchCampers.fulfilled, fetchCampersThunk.fulfilled)
-      .addCase(fetchCampers.rejected, fetchCampersThunk.rejected)
-      .addCase(fetchDetails.pending, fetchDetailsThunk.pending)
-      .addCase(fetchDetails.fulfilled, fetchDetailsThunk.fulfilled)
-      .addCase(fetchDetails.rejected, fetchDetailsThunk.rejected),
+      .addCase(fetchCampers.rejected, fetchCampersThunk.rejected),
 });
 
+export const { toggleFavorite } = campersSlice.actions;
 export const campersReducer = campersSlice.reducer;

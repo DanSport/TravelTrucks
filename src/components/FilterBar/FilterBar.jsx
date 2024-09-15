@@ -63,11 +63,7 @@ export const FilterBar = () => {
       <h3 className={css.sectionTitle}>
         Filters &nbsp;{' '}
         {!!filtersChanged && (
-          <button
-            type="button"
-            className={css.resetFilters}
-            onClick={() => dispatch(resetFilters())}
-          >
+          <button type="button" className={css.resetFilters} onClick={() => dispatch(resetFilters())}>
             (Reset)
           </button>
         )}
@@ -104,13 +100,7 @@ export const FilterBar = () => {
           ))}
         </ul>
       </div>
-      <Button
-        title="Search"
-        className={css.button}
-        onClick={() => {}}
-        type="button"
-        variant="primary"
-      />
+      <Button title="Search" className={css.button} onClick={() => {}} type="button" variant="primary" />
     </div>
   );
 };
