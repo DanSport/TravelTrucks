@@ -27,6 +27,7 @@ export const CampersList = () => {
     if (!campersLoaded) {
       dispatch(fetchCampers());
     }
+    setPage(1);
   }, [dispatch, campersLoaded]);
 
   useEffect(() => {
@@ -57,8 +58,8 @@ export const CampersList = () => {
               </li>
             ))}
             {campers.length > page * 4 && (
-              <li>
-                <Button title="Load more" onClick={() => setPage(prev => prev + 1)} />
+              <li style={{ textAlign: 'center' }}>
+                <Button title="Load more" variant="secondary" onClick={() => setPage(prev => prev + 1)} />
               </li>
             )}
           </ul>
