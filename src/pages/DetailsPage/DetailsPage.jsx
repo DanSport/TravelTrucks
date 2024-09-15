@@ -1,12 +1,12 @@
-import { Outlet, useParams } from 'react-router';
 import { useEffect, useState } from 'react';
-import axios from 'axios';
+import { Outlet, useParams } from 'react-router';
+import { NavLink } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import clsx from 'clsx';
 import { RatingLocation } from '../../components/RatingLocation/RatingLocation';
 import { BookingForm } from '../../components/BookingForm/BookingForm';
+import { fetchCamperDetails } from '../../redux/campers/detailsOperations';
 import css from './DetailsPage.module.css';
-import { NavLink } from 'react-router-dom';
-import clsx from 'clsx';
-import { toast } from 'react-toastify';
 
 const DetailsPage = () => {
   const { id } = useParams();
@@ -19,10 +19,9 @@ const DetailsPage = () => {
     setIsLoading(true);
     setError(null);
 
-    axios
-      .get(`https://66b1f8e71ca8ad33d4f5f63e.mockapi.io/campers/${id}`)
+    fetchCamperDetails(id)
       .then(res => {
-        setCamperDetails(res.data);
+        setCamperDetails(res);
         setIsLoading(false);
       })
       .catch(() => {
@@ -35,10 +34,14 @@ const DetailsPage = () => {
   return (
     <>
       {isLoading && (
-        <p style={{ textAlign: 'center', width: '100%', fontSize: '20px', fontWeight: 'bold' }}>Loading...</p>
+        <p style={{ textAlign: 'center', width: '100%', fontSize: '20px', fontWeight: 'bold' }}>
+          Please wait while we are loading...
+        </p>
       )}
       {error && (
-        <p style={{ color: 'red', textAlign: 'center', width: '100%', fontSize: '20px', fontWeight: 'bold' }}>Error</p>
+        <p style={{ color: 'red', textAlign: 'center', width: '100%', fontSize: '20px', fontWeight: 'bold' }}>
+          Can&apos;t load camper details
+        </p>
       )}
       {!isLoading && !error && camperDetails.id && (
         <div className={css.container}>
@@ -72,7 +75,7 @@ const DetailsPage = () => {
               <Outlet context={camperDetails} />
             </div>
             <div className={css.contentWindow}>
-              <BookingForm />
+              <BookingForm camper={camperDetails} />
             </div>
           </div>
         </div>

@@ -1,6 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { selectFilters, selectFiltersChanged } from '../../redux/filters/selectors';
-import { resetFilters, setForm, setLocation, toggleFilter } from '../../redux/filters/slice';
+import { ALL, initialState, setFilters } from '../../redux/filters/slice';
 import { Button } from '../Button/Button';
 import { InputField } from '../InputField/InputField';
 import { FilterSelectCheckBox } from '../FilterSelectCheckBox/FilterSelectCheckBox';
@@ -14,6 +13,8 @@ import alcoveIcon from '../../assets/icons/type/alcove.png';
 import vanIcon from '../../assets/icons/type/van.png';
 import integratedIcon from '../../assets/icons/type/integrated.png';
 import css from './FilterBar.module.css';
+import { useEffect, useState } from 'react';
+import { selectFilters } from '../../redux/filters/selectors';
 
 const filterList = [
   { value: 'aircond', label: 'AC', icon: aircondIcon },
@@ -30,40 +31,61 @@ const autoType = [
 ];
 
 export const FilterBar = () => {
-  const filters = useSelector(selectFilters);
-  const filtersChanged = useSelector(selectFiltersChanged);
-  const { form } = filters;
+  const appliedFilters = useSelector(selectFilters);
+  const [localFilters, setLocalFilters] = useState(initialState);
+  const [filtersChanged, setFiltersChanged] = useState(false);
   const dispatch = useDispatch();
 
   const handleLocationChange = e => {
     e.preventDefault();
-    dispatch(setLocation(e.currentTarget.value));
-  };
-
-  const handleToggle = e => {
-    e.preventDefault();
-    dispatch(toggleFilter(e.currentTarget.lastChild.name));
+    setLocalFilters({ ...localFilters, location: e.target.value });
   };
 
   const handleFormChange = e => {
     e.preventDefault();
-    dispatch(setForm(e.currentTarget.lastChild.name));
+    const formType = e.currentTarget.lastChild.name;
+    setLocalFilters({ ...localFilters, form: formType !== localFilters.form ? formType : ALL });
   };
 
+  const handleToggle = e => {
+    e.preventDefault();
+    const key = e.currentTarget.lastChild.name;
+    setLocalFilters({ ...localFilters, [key]: !localFilters[key] });
+  };
+
+  const handleReset = () => {
+    setLocalFilters(initialState);
+    dispatch(setFilters(initialState));
+  };
+
+  const handleFormSubmit = e => {
+    e.preventDefault();
+    dispatch(setFilters({ ...localFilters, page: 1 }));
+  };
+
+  useEffect(() => {
+    const checkFiltersChanged = () => {
+      return JSON.stringify(initialState) !== JSON.stringify(appliedFilters);
+    };
+
+    setLocalFilters(appliedFilters);
+    setFiltersChanged(checkFiltersChanged());
+  }, [appliedFilters]);
+
   return (
-    <div className={css.filterBar}>
+    <form className={css.filterBar}>
       <InputField
         name="location"
         placeholder="Kyiv, Ukraine"
         icon={locationIcon}
         label="Location"
-        value={filters.location}
+        value={localFilters.location}
         onChange={handleLocationChange}
       />
       <h3 className={css.sectionTitle}>
         Filters &nbsp;{' '}
         {!!filtersChanged && (
-          <button type="button" className={css.resetFilters} onClick={() => dispatch(resetFilters())}>
+          <button type="button" className={css.resetFilters} onClick={handleReset}>
             (Reset)
           </button>
         )}
@@ -78,7 +100,7 @@ export const FilterBar = () => {
                 icon={icon}
                 label={label}
                 name={value}
-                checked={filters[value]}
+                checked={localFilters[value]}
               />
             </li>
           ))}
@@ -94,13 +116,13 @@ export const FilterBar = () => {
                 icon={icon}
                 label={label}
                 name={value}
-                checked={value === form}
+                checked={value === localFilters.form}
               />
             </li>
           ))}
         </ul>
       </div>
-      <Button title="Search" className={css.button} onClick={() => {}} type="button" variant="primary" />
-    </div>
+      <Button title="Search" className={css.button} onClick={handleFormSubmit} type="submit" variant="primary" />
+    </form>
   );
 };

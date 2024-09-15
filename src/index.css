@@ -13,6 +13,8 @@
   --transition-form: ease-in-out;
   --transition: all var(--transition-time) var(--transition-form);
 
+  --box-shadow: 0 1px 5px 1px var(--color-default-border);
+
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;

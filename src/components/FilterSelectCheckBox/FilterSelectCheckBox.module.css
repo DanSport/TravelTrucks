@@ -15,7 +15,11 @@
   padding: 16px;
   overflow: hidden;
   transition: var(--transition);
-  transition-property: border-color;
+  transition-property: border-color, box-shadow;
+}
+
+.filterSelectCheckBox:hover {
+  box-shadow: var(--box-shadow);
 }
 
 .filterSelectCheckBox > img {

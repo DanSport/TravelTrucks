@@ -37,7 +37,7 @@
   padding: 0 24px;
   width: 292px;
   height: 312px;
-  transition: all var(--transition-time) var(--transition-form);
+  transition: var(--transition);
 }
 
 .galleryItem:first-of-type,
@@ -48,9 +48,8 @@
 .galleryItem:hover {
   width: 519px;
   width: calc-size(max-content);
-  box-shadow: 0 1px 5px 1px var(--color-default-border);
+  box-shadow: var(--box-shadow);
   border-radius: 10px;
-  transition: all var(--transition-time) var(--transition-form);
 }
 
 .galleryImg {

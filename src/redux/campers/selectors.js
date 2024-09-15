@@ -2,8 +2,8 @@ import { createSelector } from '@reduxjs/toolkit';
 import { selectFilters } from '../filters/selectors';
 import { ALL } from '../filters/slice';
 
-export const selectCampers = state => (state.campers.isLoading ? [] : state.campers.items?.items);
-export const selectTotalCount = state => (state.campers.isLoading ? 0 : state.campers.items?.total);
+export const selectCampers = state => state.campers.items;
+export const selectTotalCount = state => state.campers.items.length;
 export const selectIsLoading = state => state.campers.isLoading;
 export const selectError = state => state.campers.error;
 export const selectFavoriteItems = state => state.campers.favoriteItems;
@@ -33,4 +33,4 @@ export const selectFilteredCampers = createSelector([selectCampers, selectFilter
     : [];
 });
 
-export const selectCampersLoaded = state => state.campers.items?.length > 0;
+export const selectCampersLoaded = state => state.campers.items.length > 0;

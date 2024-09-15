@@ -6,7 +6,7 @@ export const initialCampersState = {
   updatedItem: [],
   favoriteItems: [],
   isLoading: false,
-  error: null,
+  error: false,
 };
 
 export const campersSlice = createSlice({
@@ -14,7 +14,6 @@ export const campersSlice = createSlice({
   initialState: initialCampersState,
   reducers: {
     toggleFavorite: (state, { payload }) => {
-      console.log({ payload });
       if (state.favoriteItems.includes(payload)) {
         state.favoriteItems = state.favoriteItems.filter(item => item !== payload);
       } else {

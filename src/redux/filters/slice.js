@@ -10,24 +10,19 @@ export const initialState = {
   bathroom: false,
   form: ALL,
   location: '',
+  page: 1,
 };
 
 const filterSlice = createSlice({
   name: 'filter',
   initialState,
   reducers: {
-    resetFilters: () => initialState,
-    toggleFilter: (state, { payload }) => {
-      state[payload] = !state[payload];
-    },
-    setLocation: (state, { payload }) => {
-      state.location = payload;
-    },
-    setForm: (state, { payload }) => {
-      state.form = state.form !== payload ? payload : ALL;
+    setFilters: (_, { payload }) => payload,
+    setPage: (state, { payload }) => {
+      state.page = payload;
     },
   },
 });
 
-export const { toggleFilter, setLocation, setForm, resetFilters } = filterSlice.actions;
+export const { setFilters, setPage } = filterSlice.actions;
 export const filterReducer = filterSlice.reducer;

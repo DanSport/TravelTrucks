@@ -3,7 +3,6 @@ import css from './ReviewsList.module.css';
 import { Stars } from '../Stars/Stars';
 
 export const ReviewsList = ({ reviews }) => {
-  console.log({ reviews });
   return (
     reviews.length && (
       <ul className={css.list}>
