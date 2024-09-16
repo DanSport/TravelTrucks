@@ -11,10 +11,10 @@ export const ReviewsList = ({ reviews }) => {
             <div className={css.header}>
               <div className={css.avatar}>{review.reviewer_name[0]}</div>
               <div className={css.reviewer}>
-                <p className={css.reviewAuthor}>{review.reviewer_name}</p>
-                <p className={css.reviewRating}>
+                <div className={css.reviewAuthor}>{review.reviewer_name}</div>
+                <div className={css.reviewRating}>
                   <Stars rating={review.reviewer_rating} />
-                </p>
+                </div>
               </div>
             </div>
             <p className={css.reviewText}>{review.comment}</p>

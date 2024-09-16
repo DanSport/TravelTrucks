@@ -65,7 +65,8 @@
   left: 24px;
   font-size: 14px;
   transition: var(--transition);
-  transition-property: left bottom;
+  transition-property: left, bottom;
+  pointer-events: none;
 }
 
 .icon {

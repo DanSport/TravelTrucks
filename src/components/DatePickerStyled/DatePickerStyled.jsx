@@ -16,10 +16,10 @@ export const DatePickerStyled = ({ onChange, label }) => {
   registerLocale('uk', uk);
 
   return (
-    <label className={css.inputField}>
+    <div className={css.inputField}>
       <DatePicker selected={startDate} onChange={handleChange} className={css.input} locale={'uk'} />
       <span className={css.label}>{label}</span>
-    </label>
+    </div>
   );
 };
 

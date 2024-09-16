@@ -47,9 +47,14 @@
 
 .galleryItem:hover {
   width: 519px;
-  width: calc-size(max-content);
   box-shadow: var(--box-shadow);
   border-radius: 10px;
+}
+
+@supports (width: calc-size) {
+  .galleryItem:hover {
+    width: calc-size(max-content);
+  }
 }
 
 .galleryImg {
