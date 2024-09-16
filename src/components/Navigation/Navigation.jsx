@@ -15,11 +15,6 @@ export const Navigation = () => {
           Catalog
         </NavLink>
       </li>
-      <li>
-        <NavLink className={({ isActive }) => clsx(css.navlink, isActive && css.active)} to="/favorites">
-          Favorites
-        </NavLink>
-      </li>
     </ul>
   );
 };

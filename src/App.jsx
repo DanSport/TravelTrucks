@@ -22,7 +22,6 @@ function App() {
               <Route index element={<FeaturesPage />} />
               <Route path="reviews" element={<ReviewsPage />} />
             </Route>
-            <Route path="/favorites" element={<CampersPage favorites={true} />} />
             <Route path="*" element={<Navigate to="/" />} />
           </Route>
         </Routes>
