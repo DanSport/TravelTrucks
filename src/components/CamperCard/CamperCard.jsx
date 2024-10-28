@@ -9,12 +9,14 @@ import { Features } from '../Features/Features';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectFavoriteItems } from '../../redux/campers/selectors';
 import { toggleFavorite } from '../../redux/campers/slice';
+import { useNavigate } from 'react-router-dom';
 
 export const CamperCard = ({ camper }) => {
   const { id, name, price, rating, location, description, reviews, gallery } = camper;
   const dispatch = useDispatch();
   const isFavorite = useSelector(selectFavoriteItems).includes(id);
-
+  const navigate = useNavigate();
+  
   const handleToggleFavorite = () => {
     dispatch(toggleFavorite(id));
   };
@@ -30,14 +32,14 @@ export const CamperCard = ({ camper }) => {
               <FavoritesButton isFavorite={isFavorite} onClick={handleToggleFavorite} />
             </Price>
           </div>
-          <RatingLocation location={location} rating={rating} reviewsCount={reviews.length} />
+          <RatingLocation id={id} location={location} rating={rating} reviewsCount={reviews.length} />
         </div>
         <p className={css.description}>{description}</p>
         <Features camper={camper} />
         <Button
           title="Show more"
           onClick={() => {
-            window.open(`${window.location.origin}/catalog/${id}`, '_blank');
+             navigate(`/catalog/${id}`);
           }}
         />
       </div>

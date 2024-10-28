@@ -30,7 +30,7 @@ export const BookingForm = ({ camper = {} }) => {
     setTimeout(() => {
       toast.success('Your booking has been successfully created!');
     }, 3000);
-    event.target.reset();
+    setFormData({ id, name: '', email: '', date: dateValue, comment: '' });
   };
 
   return (
